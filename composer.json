@@ -1,0 +1,23 @@
+{
+    "name": "ycore/fortify-ui-unstyled",
+    "description": "Un-styled authentication blade views for ycore/fortify-ui",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johan Meyer",
+            "email": "y-core@outlook.com"
+        }
+    ],
+    "homepage": "https://github.com/ycore/fortify-ui",
+    "keywords": ["Laravel", "Fortify", "laravel/fortify", "laravel/ui", "FortifyUi", "fortify-ui"],
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+    },
+    "autoload-dev": {
+    },
+    "extra": {
+    }
+}
