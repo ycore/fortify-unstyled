@@ -1,8 +1,8 @@
-<p  align="center">
-    <img  src="https://github.com/ycore/fortify-ui/raw/master/resources/svg/fortify-ui.svg" width="400">
-</p>
-
 # Un-styled authentication UI views for [**FortifyUi**][link-fortify-ui]
+
+<p  align="center">
+    <img  src="https://github.com/ycore/ycore/blob/gh-pages/resources/svg/fortify-ui.svg" width="400">
+</p>
 
 ## Introduction
 
