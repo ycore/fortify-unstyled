@@ -1,7 +1,7 @@
 <div>
     <h2>Two factor authentication</h2>
     <div>
-        @if(! auth()->user()->two_factor_secret)
+        @if (! auth()->user()->two_factor_secret)
         <form method="POST" action="{{ url('user/two-factor-authentication') }}">
             @csrf
 
@@ -19,7 +19,7 @@
             </button>
         </form>
 
-        @if(session('status') == 'two-factor-authentication-enabled')
+        @if (session('status') == 'two-factor-authentication-enabled')
         <div>
             {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}
         </div>

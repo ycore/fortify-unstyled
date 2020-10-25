@@ -1,22 +1,62 @@
-# Un-styled authentication UI views for [**FortifyUi**][link-fortify-ui]
+# Completely un-styled authentication blade views for [**FortifyUI**][link-fortify-ui]
 
-<p  align="center">
-    <img  src="https://github.com/ycore/ycore/blob/gh-pages/resources/svg/fortify-ui.svg" width="400">
-</p>
+<div align="center">
+    <img  src="https://github.com/ycore/fortify-tailwind/blob/stubs/resources/svg/fortify-login.svg" width="200">
+</div>
 
 ## Introduction
 
-Fortify-Ui-unstyled provides a UI views scaffolding package with no styling and minimal markup. This can either be installed as an un-styled starter into an existing Laravel project using the [**FortifyUi**][link-fortify-ui] installer or forked to create your own package for styling and scaffolding.
+[Fortify-unstyled][link-this] provides authentication UI views for [**FortifyUI**][link-fortify-ui], with no styling and only minimum markup. Use it to style your own authentication UI or fork it to create an authentication UI styling package for your frontend library or framework of choice.
 
-See the [**FortifyUi** readme][link-fortify-ui] for installation instructions.
+[![Latest Version on Packagist][ico-version]][link-packagist]
 
-See the _[**FortifyUi** notes section](https://github.com/ycore/fortify-ui#creating-the-fortify-ui-unstyled-views)_ for details on how the un-styled views were made.
+## Installation
 
-See the _[**FortifyUi** custom UI section](https://github.com/ycore/fortify-ui#installing-your-own-or-community-provided-ui-scaffolding)_ for details on creating and installing custom authentication UI views.
+1. To get started, install [Fortify-unstyled][link-this] using Composer.
 
-See the _[**FortifyUi** alternate repositories section](https://github.com/ycore/fortify-ui#creating-the-fortify-ui-unstyled-views)_ for details on installing a custom package from alternative repositories.
+``` bash
+$ composer require ycore/fortify-unstyled
+```
+This command initializes [**FortifyUI**][link-fortify-ui] and publishes the [Fortify-unstyled][link-this] authentication views and scaffolding.
 
-## Change log
+- [x] Publishes authentication blade views to `resources/views/`
+- [x] Appends a `home` route to `routes/web.php`
+- [x] Enables the `login` and `register` _[Laravel Fortify][link-fortify]_ features
+
+This package and [**FortifyUI**][link-fortify-ui] both utilize package auto-discovery. There is no need to add the service providers manually.
+
+2. Next, publish the [Fortify-unstyled][link-this] authentication views and scaffolding:
+
+``` bash
+$ php artisan fortify-ui:unstyled --new
+```
+
+[Fortify-unstyled][link-this] installs a sensible default configuration based on the _[Laravel Fortify][link-fortify]_ recommendations. The `login`, `logout`, `registration` and `reset-passwords` features and routes are enabled by default. If these defaults are sufficient, there is no need for additional configuration.
+
+### Installation options
+
+[Fortify-unstyled][link-this] is designed to be re-installed. Use the `--force` or `--views-only` options to overwrite previously-installed views or scaffolding.
+
+Overwrite all previously installed views and scaffolding
+``` bash
+$ php artisan fortify-ui:unstyled --force
+```
+Overwrite all previously installed views only
+``` bash
+$ php artisan fortify-ui:unstyled --views-only
+```
+
+### More configuration options
+[**FortifyUI**][link-fortify-ui] also provides more configuration options via the `fortify-ui:publish` command. See the [**FortifyUI** configuration][link-fortify-ui] section for details on publishing additional configuration options.
+
+## How the [**FortifyUI**][link-fortify-ui] `un-styled` views were created.
+
+The [Fortify-unstyled][link-this] views were created by cloning `stubs` from [Fortify-tailwind](https://github.com/ycore/fortify-tailwind), then regexp-stripping the `class=""` attributes from all html tags using vscode find-replace.
+```bash
+    search: [\n| ]*class="[^"]*?"
+```
+
+## Changelog
 
 Please see the [Changelog](changelog.md) for more information on what has changed recently.
 
@@ -32,9 +72,12 @@ Should you discover any security-related issues, please email y-core@outlook.com
 ## License
 
 MIT. Please see the [License file](license.md) for more information.
+[ico-version]: https://img.shields.io/packagist/v/ycore/fortify-unstyled.svg?style=flat-square
 
+[link-this]: https://github.com/ycore/fortify-unstyled
 [link-fortify-ui]: https://github.com/ycore/fortify-ui
+[link-fortify]: https://github.com//laravel/fortify
 
-[link-packagist]: https://packagist.org/packages/ycore/fortify-ui
+[link-packagist]: https://packagist.org/packages/ycore/fortify-unstyled
 [link-author]: https://github.com/ycore
 [link-contributors]: ../../contributors
