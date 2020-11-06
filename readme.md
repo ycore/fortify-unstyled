@@ -1,6 +1,8 @@
 # Completely un-styled authentication blade views for [**FortifyUI**][link-fortify-ui]
 
-<img src="https://github.com/ycore/fortify-unstyled/blob/master/stubs/unstyled/resources/svg/fortify-login.svg" style="display:block; margin-left: auto; margin-right: auto; width: 25%;">
+<div align="center">
+    <img src="https://github.com/ycore/fortify-unstyled/blob/master/stubs/unstyled/resources/svg/fortify-banner.svg" width="30%" >
+</div>
 
 ## Introduction
 
@@ -26,7 +28,7 @@ This package and [**FortifyUI**][link-fortify-ui] both utilize package auto-disc
 2. Next, publish the [Fortify-unstyled][link-this] authentication views and scaffolding:
 
 ``` bash
-$ php artisan fortify-ui:unstyled --new
+$ php artisan fortify-ui:unstyled
 ```
 
 [Fortify-unstyled][link-this] installs a sensible default configuration based on the _[Laravel Fortify][link-fortify]_ recommendations. The `login`, `logout`, `registration` and `reset-passwords` features and routes are enabled by default. If these defaults are sufficient, there is no need for additional configuration.
@@ -70,12 +72,12 @@ Should you discover any security-related issues, please email y-core@outlook.com
 ## License
 
 MIT. Please see the [License file](license.md) for more information.
-[ico-version]: https://img.shields.io/packagist/v/ycore/fortify-unstyled.svg?style=flat-square
 
 [link-this]: https://github.com/ycore/fortify-unstyled
 [link-fortify-ui]: https://github.com/ycore/fortify-ui
 [link-fortify]: https://github.com//laravel/fortify
 
+[ico-version]: https://img.shields.io/packagist/v/ycore/fortify-unstyled.svg?style=flat-square
 [link-packagist]: https://packagist.org/packages/ycore/fortify-unstyled
 [link-author]: https://github.com/ycore
 [link-contributors]: ../../contributors

@@ -16,11 +16,6 @@ class UnstyledUIServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../stubs/unstyled/webpack.mix.js' => base_path('webpack.mix.js'),
-                __DIR__ . '/../stubs/unstyled/resources/css' => base_path('resources/css'),
-            ], 'unstyled-scaffold');
-
-            $this->publishes([
                 __DIR__ . '/../stubs/unstyled/resources/views' => base_path('resources/views'),
             ], 'unstyled-views');
 

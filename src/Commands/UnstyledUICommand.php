@@ -10,12 +10,14 @@ class UnstyledUICommand extends Command
     public $config;
 
     protected $signature = 'fortify-ui:unstyled
-        {--new : Overwrite any existing resources in a new installation }
         {--views-only : Overwrite all existing views only }
         {--f|force : Overwrite any existing files - equivalent to --new }
         ';
 
     protected $description = 'Publishes Unstyled CSS-styled authentication blade views for FortifyUI';
+
+    protected $provider = 'Ycore\FortifyUI\UnstyledUIServiceProvider';
+    protected $viewsTag = 'unstyled-views';
 
     public function __construct()
     {
@@ -31,34 +33,42 @@ class UnstyledUICommand extends Command
      */
     public function handle()
     {
-        if (! $this->publishAssets('unstyled-views', $this->option('views-only'))) {
-            $this->error('Authentication views exist. Use --views-only or --force to overwrite');
+        if (! $this->publishAssets()) {
+            $this->error('Some resources already exist. Use --views-only or --force to overwrite');
             return;
-        };
-
-        if (! $this->option('views-only')) {
-            if (! $this->publishAssets('unstyled-scaffold')) {
-                $this->error('Some resources already exist. Use --new or --force to overwrite');
-                return;
-            };
         }
 
-        $this->config->appendHomeRoute(['register', 'reset']);
-        $this->callSilent('fortify-ui:publish', ['--config' => true]);
-        $this->config->updateEnabled(['register', 'reset']);
-        $this->call('fortify-ui:publish', ['--show-enabled' => true]);
+        if (! $this->option('views-only')) {
+            $this->config->appendHomeRoute(['register', 'reset']);
+            $this->callSilent('fortify-ui:publish', ['--config' => true]);
+            $this->config->updateEnabled(['register', 'reset']);
+        }
 
+        $this->call('fortify-ui:publish', ['--show-enabled' => true]);
+        $this->info('FortifyUI Installed succesfully.');
     }
 
-    protected function publishAssets($tag, $override = false)
+    /**
+     * Publish the assets
+     *
+     * @return bool
+     */
+    protected function publishAssets()
     {
-        if (! $this->config->anyConflicts('Ycore\FortifyUI\UnstyledUIServiceProvider', $tag) ||
-            $override || $this->option('new') || $this->option('force')) {
-            $this->callSilent('vendor:publish', [
-                '--provider' => 'Ycore\FortifyUI\UnstyledUIServiceProvider',
-                '--tag' => $tag,
-                '--force' => true,
-            ]);
+        $tag = $this->option('views-only') ? $this->viewsTag : null;
+
+        $options = [
+            '--provider' => $this->provider,
+            '--force' => true,
+        ];
+
+        if ($tag !== null) {
+            $options['--tag'] = $tag;
+        }
+
+        if (! $this->config->anyConflicts($this->provider, $tag) ||
+            ! file_exists(config_path('fortify.php')) || $this->option('views-only') || $this->option('force')) {
+            $this->callSilent('vendor:publish', $options);
             return true;
         }
 

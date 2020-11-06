@@ -9,7 +9,6 @@
         }
     ],
     "homepage": "https://github.com/ycore/fortify-ui",
-    "homepage": "https://github.com/ycore/fortify-ui",
     "keywords": ["Laravel", "Fortify", "laravel-fortify", "laravel-ui", "FortifyUI", "fortify-ui"],
     "require": {
         "ycore/fortify-ui": "^1.1"
