@@ -1,8 +1,6 @@
 # Completely un-styled authentication blade views for [**FortifyUI**][link-fortify-ui]
 
-<div align="center">
-    <img src="https://github.com/ycore/fortify-unstyled/blob/master/stubs/unstyled/resources/svg/fortify-login.svg" width="200">
-</div>
+<img src="https://github.com/ycore/fortify-unstyled/blob/master/stubs/unstyled/resources/svg/fortify-login.svg" style="display:block; margin-left: auto; margin-right: auto; width: 25%;">
 
 ## Introduction
 
